@@ -5,6 +5,9 @@ const routes = require('./routes/api');
 const path = require('path');
 require('dotenv').config();
 
+//express middleware between front and back
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 //set port or heroku set up//
 const port = process.env.PORT || 5000;
 
@@ -39,9 +42,7 @@ app.use(function (req, res, next) {
 
 
 
-//express middleware between front and back
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+
 
 //Start the api server
 app.listen(port, () => {
